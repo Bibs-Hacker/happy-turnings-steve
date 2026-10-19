@@ -1,0 +1,1241 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080711">
+<meta name="description" content="A cinematic birthday universe created by Jannet for Steve Mwende.">
+<title>Steve Mwende | A Universe Made for You</title>
+
+<style>
+:root{
+  --bg:#080711;
+  --panel:rgba(255,255,255,.055);
+  --panel2:rgba(255,255,255,.085);
+  --line:rgba(255,255,255,.12);
+  --white:#fffaf7;
+  --muted:#b7b1c8;
+  --gold:#f6d68a;
+  --gold2:#ffb85c;
+  --pink:#ffadd8;
+  --cyan:#85f5ff;
+  --violet:#b99aff;
+  --radius:25px;
+  --shadow:0 25px 80px rgba(0,0,0,.32);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:95px}
+body{
+  margin:0;background:var(--bg);color:var(--white);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  overflow-x:hidden;line-height:1.65;
+}
+body.locked{overflow:hidden}
+button,input{font:inherit}
+button{color:inherit}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+::selection{background:#f6d68a;color:#17101e}
+button:focus-visible,a:focus-visible,input:focus-visible{
+  outline:2px solid var(--cyan);outline-offset:4px
+}
+#ambient{
+  position:fixed;inset:0;z-index:-3;pointer-events:none;overflow:hidden;
+  background:
+    radial-gradient(ellipse at 12% 8%,rgba(124,75,202,.16),transparent 37%),
+    radial-gradient(ellipse at 90% 35%,rgba(38,154,177,.10),transparent 34%),
+    radial-gradient(ellipse at 48% 100%,rgba(180,93,140,.10),transparent 42%),
+    var(--bg);
+}
+.orb{
+  position:absolute;width:340px;height:340px;border-radius:50%;
+  filter:blur(85px);opacity:.19;animation:drift 17s ease-in-out infinite alternate;
+}
+.orb.one{background:#8857ff;top:10%;left:-180px}
+.orb.two{background:#16bfcf;top:48%;right:-210px;animation-delay:-7s}
+.orb.three{background:#f4a7ce;bottom:-250px;left:35%;animation-delay:-11s}
+@keyframes drift{to{transform:translate(80px,-65px) scale(1.18)}}
+#stars{position:fixed;inset:0;z-index:-2;pointer-events:none}
+.container{width:min(1160px,calc(100% - 36px));margin:auto}
+.eyebrow{
+  color:var(--gold);text-transform:uppercase;letter-spacing:.24em;
+  font-size:.72rem;font-weight:800
+}
+.section{padding:110px 0;position:relative}
+.section-head{max-width:720px;margin:0 auto 44px;text-align:center}
+.section-head h2{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(2.1rem,5vw,4rem);font-weight:500;line-height:1.1;
+  letter-spacing:-.045em;margin:13px 0
+}
+.section-head p{color:var(--muted);margin:0}
+.gradient-text{
+  background:linear-gradient(100deg,#fff4d0,var(--gold),var(--pink),var(--cyan));
+  -webkit-background-clip:text;background-clip:text;color:transparent
+}
+.btn{
+  border:1px solid var(--line);background:var(--panel);
+  padding:13px 20px;border-radius:999px;display:inline-flex;
+  align-items:center;justify-content:center;gap:10px;cursor:pointer;
+  transition:transform .25s,border-color .25s,background .25s;
+  backdrop-filter:blur(16px);font-weight:750
+}
+.btn:hover{transform:translateY(-3px);border-color:rgba(246,214,138,.55);background:var(--panel2)}
+.btn.primary{
+  color:#201529;background:linear-gradient(120deg,#fff0c0,var(--gold),#ffb7d7);
+  border:0;box-shadow:0 10px 38px rgba(246,214,138,.17)
+}
+.btn.small{padding:9px 14px;font-size:.85rem}
+.icon{width:19px;height:19px;display:inline-block;flex:none}
+.glass{
+  border:1px solid var(--line);background:linear-gradient(145deg,rgba(255,255,255,.085),rgba(255,255,255,.025));
+  backdrop-filter:blur(22px);box-shadow:var(--shadow)
+}
+.pill{
+  display:inline-flex;align-items:center;gap:8px;padding:8px 12px;
+  border-radius:999px;background:rgba(255,255,255,.06);
+  border:1px solid var(--line);color:#eee7f7;font-size:.78rem
+}
+.pulse-dot{width:7px;height:7px;border-radius:50%;background:#b3ffdf;box-shadow:0 0 14px #b3ffdf}
+.divider{
+  height:1px;background:linear-gradient(90deg,transparent,rgba(246,214,138,.35),transparent);
+  margin:0 auto;width:min(800px,90%)
+}
+
+/* SECURITY */
+#security{
+  position:fixed;inset:0;z-index:1000;display:grid;place-items:center;
+  padding:20px;background:
+  radial-gradient(ellipse at 50% 20%,rgba(105,72,168,.2),transparent 48%),
+  #080711;overflow:auto;
+}
+.security-card{width:min(470px,100%);padding:clamp(24px,5vw,44px);border-radius:30px;text-align:center;position:relative}
+.brand-mark{
+  width:64px;height:64px;margin:0 auto 22px;display:grid;place-items:center;
+  border-radius:22px;border:1px solid rgba(246,214,138,.45);
+  color:var(--gold);font:italic 2rem Georgia,serif;
+  background:linear-gradient(145deg,rgba(246,214,138,.16),rgba(185,154,255,.08));
+  box-shadow:0 0 45px rgba(246,214,138,.09)
+}
+.security-card h1{font:500 clamp(2.2rem,7vw,3.3rem)/1 Georgia,serif;margin:0 0 14px}
+.security-card p{color:var(--muted);font-size:.94rem}
+.pin-slots{display:flex;justify-content:center;gap:13px;margin:28px 0 18px}
+.pin-slot{
+  width:55px;height:62px;display:grid;place-items:center;border-radius:15px;
+  border:1px solid var(--line);background:rgba(255,255,255,.035);
+  font-size:1.7rem;color:var(--gold);transition:.25s
+}
+.pin-slot.filled{border-color:rgba(246,214,138,.6);background:rgba(246,214,138,.09)}
+.keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}
+.key{
+  border:1px solid var(--line);border-radius:15px;background:rgba(255,255,255,.045);
+  min-height:52px;font-size:1.08rem;cursor:pointer;transition:.2s
+}
+.key:hover{background:rgba(255,255,255,.11);border-color:rgba(185,154,255,.55)}
+.key.enter{background:linear-gradient(120deg,#ffe9ac,#eebd78);color:#24182a;border:0;font-weight:850}
+.key:disabled{opacity:.35;cursor:not-allowed}
+#pinStatus{min-height:28px;color:var(--muted);font-size:.82rem;margin-top:14px}
+.hint-button{background:none;border:0;color:var(--gold);text-decoration:underline;cursor:pointer;font-size:.82rem}
+.shake{animation:shake .4s}
+@keyframes shake{25%,75%{transform:translateX(-7px)}50%{transform:translateX(7px)}}
+#verification{
+  position:fixed;inset:0;z-index:1001;background:#080711;display:none;
+  place-items:center;overflow:hidden;text-align:center
+}
+#verification.active{display:grid}
+.verify-rings{position:absolute;width:200px;height:200px}
+.verify-rings i{
+  position:absolute;inset:0;border:1px solid rgba(246,214,138,.6);
+  border-radius:50%;animation:ring 2.8s ease-out infinite
+}
+.verify-rings i:nth-child(2){animation-delay:.7s}
+.verify-rings i:nth-child(3){animation-delay:1.4s}
+@keyframes ring{from{transform:scale(.2);opacity:0}35%{opacity:.8}to{transform:scale(3.5);opacity:0}}
+.verify-inner{position:relative;z-index:2;padding:20px}
+.verify-letter{font:italic 7rem Georgia,serif;color:var(--gold);text-shadow:0 0 55px rgba(246,214,138,.45)}
+.verify-inner p{color:var(--muted);letter-spacing:.2em;text-transform:uppercase;font-size:.75rem}
+#verification .progress{width:min(240px,65vw);height:2px;background:#ffffff20;margin:25px auto;overflow:hidden}
+#verification .progress span{display:block;height:100%;width:0;background:var(--gold);animation:loadline 5s linear forwards}
+@keyframes loadline{to{width:100%}}
+.portal-flash{position:absolute;inset:0;background:#fff1c6;opacity:0;pointer-events:none}
+#verification.finishing .portal-flash{animation:flash .9s ease}
+@keyframes flash{35%{opacity:.9}100%{opacity:0}}
+
+/* NAVIGATION AND MUSIC */
+header{
+  position:sticky;top:0;z-index:80;border-bottom:1px solid rgba(255,255,255,.07);
+  background:rgba(8,7,17,.78);backdrop-filter:blur(20px)
+}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:76px}
+.wordmark{display:flex;align-items:center;gap:12px;font-weight:850;letter-spacing:.03em}
+.wordmark .mini{
+  display:grid;place-items:center;width:39px;height:39px;border-radius:13px;
+  border:1px solid rgba(246,214,138,.4);color:var(--gold);font:italic 1.4rem Georgia,serif
+}
+.nav-links{display:flex;align-items:center;gap:22px;color:var(--muted);font-size:.82rem}
+.nav-links a:hover{color:var(--gold)}
+.nav-actions{display:flex;gap:8px;align-items:center}
+#musicBars{display:flex;align-items:center;gap:3px;height:15px}
+#musicBars i{display:block;width:3px;height:5px;border-radius:4px;background:currentColor}
+#musicBars.playing i{animation:bars .7s ease-in-out infinite alternate}
+#musicBars i:nth-child(2){animation-delay:-.4s}
+#musicBars i:nth-child(3){animation-delay:-.2s}
+#musicBars i:nth-child(4){animation-delay:-.55s}
+@keyframes bars{to{height:15px}}
+#mobileMenu{display:none}
+
+/* HERO */
+.hero{min-height:calc(94svh - 76px);display:grid;align-items:center;padding:75px 0 95px;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:60px}
+.hero-copy{position:relative;z-index:2}
+.hero-copy h1{
+  font:500 clamp(3.5rem,8.4vw,7.7rem)/.91 Georgia,"Times New Roman",serif;
+  letter-spacing:-.065em;margin:25px 0 26px
+}
+.hero-copy h1 .line2{display:block;font-style:italic;margin-top:12px}
+.hero-copy>p{max-width:570px;color:var(--muted);font-size:1.04rem}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin:30px 0}
+.hero-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}
+.portrait-stage{min-height:540px;position:relative;display:grid;place-items:center}
+.portrait-glow{
+  position:absolute;width:82%;aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle,rgba(246,214,138,.18),rgba(185,154,255,.12) 45%,transparent 72%);
+  filter:blur(10px);animation:breathe 5s ease-in-out infinite alternate
+}
+@keyframes breathe{to{transform:scale(1.12);opacity:.75}}
+.portrait-frame{
+  width:min(390px,85%);position:relative;padding:10px;border-radius:190px 190px 32px 32px;
+  background:linear-gradient(145deg,rgba(246,214,138,.8),rgba(255,255,255,.12),rgba(185,154,255,.65));
+  transform:rotate(2deg);box-shadow:0 35px 110px rgba(0,0,0,.5),0 0 70px rgba(246,214,138,.1)
+}
+.portrait-frame img{
+  width:100%;height:485px;object-fit:cover;object-position:center 25%;
+  border-radius:185px 185px 25px 25px;background:#171322
+}
+.portrait-caption{
+  position:absolute;bottom:28px;left:-35px;max-width:210px;padding:16px 19px;
+  border-radius:18px;transform:rotate(-4deg)
+}
+.portrait-caption strong{display:block;font:italic 1.3rem Georgia,serif;color:var(--gold)}
+.portrait-caption span{font-size:.75rem;color:var(--muted)}
+.floating-note{
+  position:absolute;right:-10px;top:14%;padding:14px 18px;border-radius:18px;
+  font:italic 1.05rem Georgia,serif;color:var(--pink);transform:rotate(5deg)
+}
+.scroll-cue{position:absolute;bottom:25px;left:50%;transform:translateX(-50%);color:var(--muted);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase}
+
+/* COUNTDOWN */
+.countdown-wrap{padding:0 0 40px}
+.countdown-card{border-radius:28px;padding:28px;display:grid;grid-template-columns:1fr 1.35fr;gap:25px;align-items:center}
+.countdown-card h3{font:500 1.7rem Georgia,serif;margin:0 0 5px}
+.countdown-card p{margin:0;color:var(--muted);font-size:.86rem}
+.countdown-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.timebox{text-align:center;padding:17px 5px;border-radius:17px;background:rgba(255,255,255,.04);border:1px solid var(--line)}
+.timebox strong{display:block;font:500 clamp(1.6rem,4vw,2.5rem) Georgia,serif;color:var(--gold)}
+.timebox span{font-size:.66rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+
+/* STORY */
+.story-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.story-card{border-radius:var(--radius);padding:25px;position:relative;overflow:hidden;min-height:220px}
+.story-number{font:italic 2.7rem Georgia,serif;color:rgba(246,214,138,.65)}
+.story-card h3{font:500 1.45rem Georgia,serif;margin:12px 0 8px}
+.story-card p{color:var(--muted);font-size:.9rem;margin:0}
+.timeline{max-width:790px;margin:0 auto;position:relative}
+.timeline:before{content:"";position:absolute;left:20px;top:12px;bottom:12px;width:1px;background:linear-gradient(var(--gold),var(--violet),transparent)}
+.timeline-item{position:relative;padding:0 0 32px 58px}
+.timeline-dot{position:absolute;left:12px;top:8px;width:17px;height:17px;border:3px solid var(--gold);background:var(--bg);border-radius:50%;box-shadow:0 0 18px #f6d68a50}
+.timeline-card{padding:22px 24px;border-radius:20px}
+.timeline-card small{color:var(--gold);letter-spacing:.12em;text-transform:uppercase}
+.timeline-card h3{font:500 1.3rem Georgia,serif;margin:7px 0}
+.timeline-card p{color:var(--muted);margin:0;font-size:.9rem}
+.edit-note{font-size:.75rem;color:#bcb1d2;margin-top:10px;font-style:italic}
+
+/* GALLERY */
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.photo-card{position:relative;border-radius:24px;overflow:hidden;cursor:pointer;min-height:300px;background:#171322;border:1px solid var(--line)}
+.photo-card img{width:100%;height:100%;min-height:300px;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .5s}
+.photo-card:hover img{transform:scale(1.045);filter:saturate(1.12)}
+.photo-card:after{content:"";position:absolute;inset:30% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.8));pointer-events:none}
+.photo-label{position:absolute;z-index:2;bottom:19px;left:20px;right:20px}
+.photo-label span{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold)}
+.photo-label h3{font:500 1.45rem Georgia,serif;margin:5px 0}
+.photo-card.tall{grid-row:span 2}
+.photo-card.tall img{min-height:640px}
+.photo-card img.broken{opacity:.25}
+.gallery-tip{text-align:center;color:var(--muted);font-size:.8rem;margin-top:20px}
+
+/* LETTER */
+.letter-layout{display:grid;grid-template-columns:.75fr 1.25fr;gap:28px;align-items:stretch}
+.letter-photo{border-radius:28px;overflow:hidden;min-height:470px}
+.letter-photo img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.letter-paper{
+  position:relative;padding:clamp(25px,5vw,52px);border-radius:28px;
+  color:#32253a;background:linear-gradient(135deg,#fff2d8,#f9dfed 52%,#e8e1ff);
+  box-shadow:0 25px 80px #0004
+}
+.letter-paper:before{content:"";position:absolute;inset:12px;border:1px solid #8f6c7140;border-radius:19px;pointer-events:none}
+.letter-paper .eyebrow{color:#9a6b3e}
+.letter-paper h3{font:italic 2.4rem Georgia,serif;margin:12px 0 20px}
+.letter-paper p{position:relative;color:#594658;line-height:1.95;font-size:.95rem}
+.letter-sign{font:italic 1.7rem Georgia,serif;color:#8b587a;margin-top:28px}
+
+/* 100 REASONS */
+.reasons-tools{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:25px}
+.reason-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.reason{
+  min-height:140px;text-align:left;padding:19px;border-radius:19px;
+  border:1px solid var(--line);background:var(--panel);cursor:pointer;transition:.25s
+}
+.reason:hover,.reason.open{border-color:rgba(246,214,138,.55);transform:translateY(-3px);background:rgba(246,214,138,.07)}
+.reason .n{font-size:.7rem;letter-spacing:.14em;color:var(--gold)}
+.reason p{font-size:.86rem;line-height:1.55;margin:9px 0 0}
+.reason small{display:block;margin-top:10px;color:var(--pink);font-size:.7rem}
+
+/* CAKE */
+.cake-area{text-align:center;border-radius:32px;padding:45px 20px;overflow:hidden;position:relative}
+.cake-area:before{content:"";position:absolute;width:420px;height:420px;left:50%;top:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,#f6d68a15,transparent 70%);pointer-events:none}
+.cake{position:relative;width:230px;height:220px;margin:15px auto 20px}
+.cake-plate{position:absolute;bottom:10px;left:0;right:0;margin:auto;width:230px;height:20px;border-radius:50%;background:linear-gradient(#fff4dc,#9d7b91);box-shadow:0 10px 25px #0005}
+.cake-bottom{position:absolute;bottom:25px;left:22px;width:186px;height:72px;border-radius:12px 12px 20px 20px;background:linear-gradient(90deg,#7b315b,#d46f98 45%,#7b315b);box-shadow:inset 0 -10px #53203f}
+.cake-top{position:absolute;bottom:85px;left:22px;width:186px;height:38px;border-radius:50%;background:linear-gradient(130deg,#ffdfeb,#f7a4c5);box-shadow:inset 0 -7px #cf6d9b}
+.cake-drip{position:absolute;bottom:65px;left:36px;width:14px;height:30px;background:#ffb8d2;border-radius:0 0 10px 10px;box-shadow:35px 4px #ffb8d2,76px -1px #ffb8d2,115px 5px #ffb8d2}
+.candle{position:absolute;bottom:118px;width:10px;height:47px;background:repeating-linear-gradient(135deg,#fff1bc 0 5px,#d4a8e9 5px 10px);border-radius:4px;z-index:3}
+.candle.c1{left:78px}.candle.c2{left:111px;bottom:130px}.candle.c3{left:144px}
+.flame{position:absolute;left:-3px;top:-20px;width:16px;height:22px;border-radius:60% 40% 55% 45%;background:radial-gradient(ellipse at 50% 65%,#fff 0 12%,#ffdf8a 35%,#ff8b4b 72%,transparent 74%);filter:drop-shadow(0 0 10px #ffb84e);animation:flicker .5s infinite alternate}
+@keyframes flicker{to{transform:rotate(8deg) scale(.86)}}
+.cake.blown .flame{display:none}
+.wish-message{max-width:600px;margin:20px auto;color:var(--gold);font:italic 1.4rem Georgia,serif;min-height:45px}
+
+/* PROMISES */
+.promise-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.promise{padding:25px;border-radius:23px;min-height:190px}
+.promise .promise-icon{color:var(--gold);font:italic 2rem Georgia,serif}
+.promise h3{font:500 1.25rem Georgia,serif;margin:10px 0}
+.promise p{color:var(--muted);font-size:.88rem;margin:0}
+
+/* SECRET */
+.secret-gate{max-width:720px;margin:auto;text-align:center;padding:clamp(28px,6vw,60px);border-radius:30px}
+.secret-gate h2{font:500 clamp(2rem,5vw,3.7rem) Georgia,serif;margin:15px 0}
+.secret-gate p{color:var(--muted)}
+#secretContent{display:none;margin-top:25px;animation:reveal .9s ease both}
+#secretContent.open{display:block}
+.secret-message{font:italic clamp(1.5rem,4vw,2.7rem)/1.45 Georgia,serif;color:var(--gold)}
+@keyframes reveal{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.final-scene{text-align:center;padding:130px 20px;position:relative;overflow:hidden}
+.final-scene h2{font:500 clamp(3rem,9vw,7.5rem)/.95 Georgia,serif;letter-spacing:-.06em;margin:20px 0}
+.final-scene p{color:var(--muted);max-width:560px;margin:20px auto}
+.signature{font:italic 1.6rem Georgia,serif;color:var(--pink);margin-top:30px}
+footer{padding:30px 0;border-top:1px solid rgba(255,255,255,.08);color:var(--muted);font-size:.8rem}
+.footer-row{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+.reveal.visible{opacity:1;transform:none}
+#lightbox{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.92);display:none;place-items:center;padding:20px}
+#lightbox.open{display:grid}
+#lightbox img{max-width:min(100%,900px);max-height:85vh;object-fit:contain;border-radius:15px}
+#lightbox button{position:absolute;top:20px;right:20px}
+#toast{position:fixed;bottom:25px;left:50%;transform:translate(-50%,20px);opacity:0;z-index:300;background:#211a2d;border:1px solid var(--line);padding:12px 18px;border-radius:999px;transition:.3s;pointer-events:none;font-size:.84rem}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:900px){
+ .hero-grid{grid-template-columns:1fr;gap:20px}
+ .hero-copy{text-align:center}.hero-copy>p{margin:auto}
+ .hero-actions,.hero-meta{justify-content:center}
+ .portrait-stage{min-height:520px}
+ .countdown-card{grid-template-columns:1fr;text-align:center}
+ .story-grid{grid-template-columns:1fr 1fr}
+ .reason-grid{grid-template-columns:repeat(3,1fr)}
+ .letter-layout{grid-template-columns:.7fr 1.3fr}
+ .promise-grid{grid-template-columns:1fr 1fr}
+ .nav-links{display:none}
+ #mobileMenu{display:inline-flex}
+ .nav-links.mobile-open{display:flex;position:absolute;top:76px;left:0;right:0;padding:22px;background:#100d1c;flex-direction:column;align-items:stretch;border-bottom:1px solid var(--line)}
+}
+@media(max-width:620px){
+ .container{width:min(100% - 26px,1160px)}
+ .section{padding:78px 0}
+ .hero{padding:55px 0 80px}
+ .hero-copy h1{font-size:clamp(3.2rem,16vw,5.2rem)}
+ .portrait-stage{min-height:430px}
+ .portrait-frame{width:min(310px,78%)}
+ .portrait-frame img{height:385px}
+ .portrait-caption{left:-10px;bottom:16px}
+ .floating-note{right:-5px;font-size:.9rem}
+ .countdown-card{padding:20px 13px}
+ .countdown-grid{gap:6px}
+ .timebox{padding:12px 2px}
+ .timebox span{font-size:.56rem;letter-spacing:.06em}
+ .story-grid,.gallery,.letter-layout,.promise-grid{grid-template-columns:1fr}
+ .story-card{min-height:auto}
+ .photo-card,.photo-card img{min-height:270px}
+ .photo-card.tall{grid-row:auto}
+ .photo-card.tall img{min-height:330px}
+ .letter-photo{min-height:320px;max-height:440px}
+ .reason-grid{grid-template-columns:repeat(2,1fr);gap:8px}
+ .reason{padding:13px;min-height:145px}
+ .reason p{font-size:.8rem}
+ .nav{min-height:68px}
+ .nav-links.mobile-open{top:68px}
+ .wordmark{font-size:.84rem}
+ .nav-actions .btn{padding:9px 11px}
+ .security-card{padding:25px 18px}
+ .pin-slot{width:49px;height:57px}
+ .key{min-height:49px}
+ .final-scene{padding:100px 12px}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+</style>
+</head>
+
+<body class="locked">
+<div id="ambient" aria-hidden="true">
+  <div class="orb one"></div><div class="orb two"></div><div class="orb three"></div>
+</div>
+<canvas id="stars" aria-hidden="true"></canvas>
+
+<!-- SECRET PIN ENTRANCE -->
+<section id="security" aria-label="Birthday surprise entrance">
+  <div class="security-card glass" id="securityCard">
+    <div class="brand-mark">S</div>
+    <div class="eyebrow">A private birthday universe</div>
+    <h1>Someone made<br><span class="gradient-text">this for you.</span></h1>
+    <p>Steve Mwende, a special surprise is waiting beyond this little secret. Take your time and solve the four-digit birthday code.</p>
+    <div class="pin-slots" aria-label="Four digit PIN">
+      <div class="pin-slot" id="slot0">·</div>
+      <div class="pin-slot" id="slot1">·</div>
+      <div class="pin-slot" id="slot2">·</div>
+      <div class="pin-slot" id="slot3">·</div>
+    </div>
+    <div class="eyebrow" style="letter-spacing:.1em">Your first clue</div>
+    <p id="hintText">Think of the day and month that make this celebration special.</p>
+    <button class="hint-button" id="nextHint" type="button">Give me another hint</button>
+    <div class="keypad" id="keypad">
+      <button class="key" data-digit="1">1</button><button class="key" data-digit="2">2</button><button class="key" data-digit="3">3</button>
+      <button class="key" data-digit="4">4</button><button class="key" data-digit="5">5</button><button class="key" data-digit="6">6</button>
+      <button class="key" data-digit="7">7</button><button class="key" data-digit="8">8</button><button class="key" data-digit="9">9</button>
+      <button class="key" id="clearPin">Clear</button><button class="key" data-digit="0">0</button><button class="key enter" id="enterPin">Enter ↗</button>
+    </div>
+    <div id="pinStatus" role="status" aria-live="polite">Four digits. One special surprise.</div>
+    <p style="font-size:.72rem;margin-top:18px">Created with love by Jannet.</p>
+  </div>
+</section>
+
+<!-- CINEMATIC UNLOCK -->
+<section id="verification" aria-live="polite">
+  <div class="verify-rings"><i></i><i></i><i></i></div>
+  <div class="verify-inner">
+    <div class="verify-letter">S</div>
+    <p id="verifyText">Verifying the birthday code</p>
+    <div class="progress"><span></span></div>
+    <p style="letter-spacing:.08em">A little universe is opening for you</p>
+  </div>
+  <div class="portal-flash"></div>
+</section>
+
+<header id="siteHeader" hidden>
+  <div class="container nav">
+    <a href="#home" class="wordmark">
+      <span class="mini">S</span><span>STEVE <span class="gradient-text">MWENDE</span></span>
+    </a>
+    <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+      <a href="#story">Our story</a><a href="#memories">Memories</a><a href="#letter">Letter</a>
+      <a href="#reasons">100 reasons</a><a href="#promises">Promises</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="btn small" id="musicToggle" aria-label="Play or pause birthday music">
+        <span id="musicBars"><i></i><i></i><i></i><i></i></span>
+        <span id="musicLabel">Play music</span>
+      </button>
+      <button class="btn small" id="mobileMenu" aria-label="Toggle navigation">Menu</button>
+    </div>
+  </div>
+</header>
+
+<main id="mainSite" hidden>
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <span class="pill"><span class="pulse-dot"></span> A surprise made just for you</span>
+        <div class="eyebrow" style="margin-top:28px">October 27 · Your special day</div>
+        <h1>Dear Steve,<span class="line2 gradient-text">this is for you.</span></h1>
+        <p>
+          Some people make ordinary days feel extraordinary. Today, this little universe
+          belongs to you — a collection of memories, wishes, and words from someone who
+          wanted to make your birthday feel different.
+        </p>
+        <p style="color:var(--pink);font-family:Georgia,serif;font-style:italic">
+          With love, from Jannet.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#story">Explore your universe <span aria-hidden="true">↗</span></a>
+          <a class="btn" href="#letter">Read her letter</a>
+        </div>
+        <div class="hero-meta">
+          <span class="pill">A birthday to remember</span>
+          <span class="pill">Made with intention</span>
+        </div>
+      </div>
+      <div class="portrait-stage">
+        <div class="portrait-glow"></div>
+        <div class="portrait-frame">
+          <img src="https://files.catbox.moe/g8t6b9.jpeg" alt="Steve Mwende's birthday portrait" fetchpriority="high">
+        </div>
+        <div class="portrait-caption glass">
+          <strong>Steve Mwende</strong>
+          <span>Today, the universe celebrates you.</span>
+        </div>
+        <div class="floating-note glass">Your own little universe ✦</div>
+      </div>
+    </div>
+    <a class="scroll-cue" href="#countdown">Scroll to discover ↓</a>
+  </section>
+
+  <section id="countdown" class="countdown-wrap">
+    <div class="container">
+      <div class="countdown-card glass reveal">
+        <div>
+          <div class="eyebrow">A date worth celebrating</div>
+          <h3 id="countdownTitle">Counting down to your day</h3>
+          <p id="countdownCaption">October 27, every year — the celebration continues.</p>
+        </div>
+        <div class="countdown-grid" aria-label="Birthday countdown">
+          <div class="timebox"><strong id="days">--</strong><span>Days</span></div>
+          <div class="timebox"><strong id="hours">--</strong><span>Hours</span></div>
+          <div class="timebox"><strong id="minutes">--</strong><span>Minutes</span></div>
+          <div class="timebox"><strong id="seconds">--</strong><span>Seconds</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section" id="story">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">Chapter one · The meaning</div>
+        <h2>Every beautiful story has <span class="gradient-text">its own rhythm.</span></h2>
+        <p>This page is a place to celebrate your journey. The most meaningful details are the ones only the two of you can tell.</p>
+      </div>
+      <div class="story-grid">
+        <article class="story-card glass reveal">
+          <div class="story-number">01</div>
+          <h3>The beginning</h3>
+          <p>Every journey starts somewhere. Add the real story of how Jannet and Steve first met and what made that moment memorable.</p>
+        </article>
+        <article class="story-card glass reveal">
+          <div class="story-number">02</div>
+          <h3>The little things</h3>
+          <p>The conversations, the laughter, the thoughtful gestures, and the small moments that become important over time.</p>
+        </article>
+        <article class="story-card glass reveal">
+          <div class="story-number">03</div>
+          <h3>Still becoming</h3>
+          <p>A birthday is also a chance to celebrate the person you're becoming and the good things the future may bring.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:35px" id="timeline">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">Moments that matter</div>
+        <h2>The timeline of <span class="gradient-text">your story.</span></h2>
+        <p>These are editable prompts, not invented memories. Jannet can replace them with real milestones.</p>
+      </div>
+      <div class="timeline">
+        <article class="timeline-item reveal">
+          <span class="timeline-dot"></span>
+          <div class="timeline-card glass">
+            <small>Milestone one · Add date</small>
+            <h3>The day our paths crossed</h3>
+            <p>Write how you met, what you first noticed, and why that beginning matters to you both.</p>
+            <div class="edit-note">Personalize this chapter with Jannet's real memory.</div>
+          </div>
+        </article>
+        <article class="timeline-item reveal">
+          <span class="timeline-dot"></span>
+          <div class="timeline-card glass">
+            <small>Milestone two · Add date</small>
+            <h3>A memory we still smile about</h3>
+            <p>Add a real day, conversation, adventure, or funny moment that deserves to be remembered.</p>
+            <div class="edit-note">Personalize this chapter with a real memory.</div>
+          </div>
+        </article>
+        <article class="timeline-item reveal">
+          <span class="timeline-dot"></span>
+          <div class="timeline-card glass">
+            <small>Milestone three · Add date</small>
+            <h3>Another chapter together</h3>
+            <p>Describe a moment that helped you understand, appreciate, or encourage one another.</p>
+            <div class="edit-note">Add the milestone and date before sharing.</div>
+          </div>
+        </article>
+        <article class="timeline-item reveal">
+          <span class="timeline-dot"></span>
+          <div class="timeline-card glass">
+            <small>Today · October 27</small>
+            <h3>A new year of possibilities</h3>
+            <p>Today is about celebrating Steve, wishing him well, and making space for more good memories ahead.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section" id="memories">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">Chapter two · The gallery</div>
+        <h2>Little windows into <span class="gradient-text">your world.</span></h2>
+        <p>Tap a photograph to open it. Add more real couple photos when they're available.</p>
+      </div>
+      <div class="gallery">
+        <article class="photo-card tall reveal" data-photo="https://files.catbox.moe/g8t6b9.jpeg" data-caption="Steve · A moment to celebrate">
+          <img src="https://files.catbox.moe/g8t6b9.jpeg" alt="Steve in a formal portrait" loading="lazy">
+          <div class="photo-label"><span>Portrait one</span><h3>A moment to celebrate</h3></div>
+        </article>
+        <article class="photo-card reveal" data-photo="https://files.catbox.moe/5ip7si.jpeg" data-caption="A moment in the sunshine">
+          <img src="https://files.catbox.moe/5ip7si.jpeg" alt="Steve outdoors in the sunshine" loading="lazy">
+          <div class="photo-label"><span>Portrait two</span><h3>A moment in the sunshine</h3></div>
+        </article>
+        <article class="photo-card reveal" data-photo="https://files.catbox.moe/srox30.jpeg" data-caption="Jannet · The person behind the surprise">
+          <img src="https://files.catbox.moe/srox30.jpeg" alt="Jannet smiling outdoors" loading="lazy">
+          <div class="photo-label"><span>From Jannet</span><h3>The person behind the surprise</h3></div>
+        </article>
+      </div>
+      <p class="gallery-tip">For a more personal gallery, add photos of Jannet and Steve together, with their own captions.</p>
+    </div>
+  </section>
+
+  <section class="section" id="letter">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">Chapter three · A message from Jannet</div>
+        <h2>Some words deserve <span class="gradient-text">their own space.</span></h2>
+        <p>A birthday letter that celebrates Steve without pretending to know details Jannet hasn't shared yet.</p>
+      </div>
+      <div class="letter-layout">
+        <div class="letter-photo reveal">
+          <img src="https://files.catbox.moe/srox30.jpeg" alt="Jannet, who created this birthday surprise" loading="lazy">
+        </div>
+        <article class="letter-paper reveal">
+          <div class="eyebrow">To Steve Mwende</div>
+          <h3>Dear Steve,</h3>
+          <p>Happy birthday, Steve. Today is a chance to celebrate you, your life, and all the possibilities waiting in front of you.</p>
+          <p>I wanted to make something different for your birthday — a little place filled with warm thoughts, photographs, and wishes that you can return to whenever you want to remember this day.</p>
+          <p>I hope this new year brings you peace when life feels busy, courage when you face something difficult, laughter that comes naturally, and opportunities that help you grow into the person you want to become.</p>
+          <p>May the people around you remind you that you matter. May your effort lead you somewhere meaningful. And may you always find reasons to smile, even on ordinary days.</p>
+          <p>Thank you for being the person this surprise is celebrating. I hope this birthday feels special, not only because of this page, but because of the love and good wishes behind it.</p>
+          <p>Here's to another year of growth, good memories, and beautiful possibilities.</p>
+          <div class="letter-sign">With love, Jannet.</div>
+          <p class="edit-note">Jannet can edit this letter to include her own words and memories before sharing the site.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section" id="reasons">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">Chapter four · A hundred little things</div>
+        <h2>100 reasons to <span class="gradient-text">celebrate you.</span></h2>
+        <p>Tap a card to reveal its message. These are warm birthday sentiments that Jannet can personalize with specific qualities and memories.</p>
+      </div>
+      <div class="reasons-tools">
+        <button class="btn small" id="revealReasons">Reveal all reasons</button>
+        <button class="btn small" id="shuffleReasons">Shuffle the cards</button>
+      </div>
+      <div class="reason-grid" id="reasonGrid"></div>
+      <p class="gallery-tip">Tip: replace general reasons with things Jannet genuinely loves about Steve, including little habits, qualities and shared moments.</p>
+    </div>
+  </section>
+
+  <section class="section" id="cake">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">Chapter five · Make a wish</div>
+        <h2>A little cake, <span class="gradient-text">a big wish.</span></h2>
+        <p>Every birthday deserves a moment to pause, make a wish, and welcome another year.</p>
+      </div>
+      <div class="cake-area glass reveal">
+        <span class="pill">Made for Steve Mwende</span>
+        <div class="cake" id="cake">
+          <div class="candle c1"><span class="flame"></span></div>
+          <div class="candle c2"><span class="flame"></span></div>
+          <div class="candle c3"><span class="flame"></span></div>
+          <div class="cake-top"></div><div class="cake-drip"></div><div class="cake-bottom"></div><div class="cake-plate"></div>
+        </div>
+        <h3 style="font:500 1.7rem Georgia,serif;margin:10px">Make a birthday wish, Steve.</h3>
+        <p style="color:var(--muted)">Take a quiet moment. Think of something beautiful for the year ahead.</p>
+        <button class="btn primary" id="blowCandles">I've made my wish</button>
+        <div class="wish-message" id="wishMessage" aria-live="polite"></div>
+        <button class="btn small" id="relightCandles">Light the candles again</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section" id="promises">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">Chapter six · Looking ahead</div>
+        <h2>Promises for the <span class="gradient-text">chapters to come.</span></h2>
+        <p>These are thoughtful intentions, not claims about their relationship. Jannet can change them to reflect promises they genuinely share.</p>
+      </div>
+      <div class="promise-grid">
+        <article class="promise glass reveal">
+          <div class="promise-icon">01</div>
+          <h3>Keep choosing kindness</h3>
+          <p>Make room for patience, respect, honesty, and thoughtful words — especially when a day is difficult.</p>
+        </article>
+        <article class="promise glass reveal">
+          <div class="promise-icon">02</div>
+          <h3>Celebrate the small wins</h3>
+          <p>Remember that progress matters, and that the little achievements can be worth celebrating too.</p>
+        </article>
+        <article class="promise glass reveal">
+          <div class="promise-icon">03</div>
+          <h3>Keep growing</h3>
+          <p>Support each other's goals, allow room for change, and keep learning along the way.</p>
+        </article>
+        <article class="promise glass reveal">
+          <div class="promise-icon">04</div>
+          <h3>Make time for laughter</h3>
+          <p>Keep space for joy, funny stories, spontaneous smiles, and moments that make ordinary days lighter.</p>
+        </article>
+        <article class="promise glass reveal">
+          <div class="promise-icon">05</div>
+          <h3>Speak with honesty</h3>
+          <p>Let communication be clear, respectful, and willing to listen as well as speak.</p>
+        </article>
+        <article class="promise glass reveal">
+          <div class="promise-icon">06</div>
+          <h3>Welcome new chapters</h3>
+          <p>Look forward to new experiences, meaningful goals, and the memories still waiting to be made.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="secret">
+    <div class="container">
+      <div class="secret-gate glass reveal">
+        <div class="brand-mark">✦</div>
+        <div class="eyebrow">One last little secret</div>
+        <h2>There is one more thing, <span class="gradient-text">Steve.</span></h2>
+        <p>You've explored the memories, read the letter, and celebrated another year. Whenever you're ready, open the final chapter.</p>
+        <button class="btn primary" id="openSecret">Open the final chapter ↗</button>
+        <div id="secretContent">
+          <p class="secret-message">Steve, may the year ahead bring you reasons to be proud, people who bring out the best in you, and moments that remind you how much life still has to offer.</p>
+          <p>Whatever this next chapter holds, may you meet it with courage, kindness, and hope.</p>
+          <p class="signature">Happy Birthday, Steve. — Jannet</p>
+          <button class="btn" id="celebrateAgain">Replay the celebration</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-scene" id="finale">
+    <div class="container reveal">
+      <div class="eyebrow">October 27 · And every chapter after</div>
+      <h2>Keep <span class="gradient-text">shining.</span></h2>
+      <p>A birthday is one day. The hope, care, and good wishes behind it can stay with you much longer.</p>
+      <div class="signature">Created with love by Jannet.</div>
+      <div style="margin-top:30px">
+        <button class="btn primary" id="backToTop">Return to the beginning ↑</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="siteFooter" hidden>
+  <div class="container footer-row">
+    <span>© <span id="year"></span> · A birthday universe for Steve Mwende</span>
+    <span>Made with care by Jannet.</span>
+  </div>
+</footer>
+
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="btn" id="closeLightbox">Close ×</button>
+  <img id="lightboxImage" src="" alt="">
+</div>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<audio id="birthdayMusic" loop preload="none">
+  <source src="https://files.catbox.moe/988w5n.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+/* ==========================================================
+   PROJECT STEVE MWENDE 27
+   PERSONALIZE THESE SETTINGS BEFORE SHARING.
+   ========================================================== */
+const SETTINGS = {
+  // Initial PIN: 27 October = day 27 + month 10.
+  pin: "2710",
+  birthdayMonth: 10, // October
+  birthdayDay: 27,
+  timezone: "Africa/Nairobi",
+  unlockDuration: 6200
+};
+
+const $ = (selector, root=document) => root.querySelector(selector);
+const $$ = (selector, root=document) => [...root.querySelectorAll(selector)];
+const security = $("#security");
+const securityCard = $("#securityCard");
+const verification = $("#verification");
+const mainSite = $("#mainSite");
+const header = $("#siteHeader");
+const footer = $("#siteFooter");
+const status = $("#pinStatus");
+const music = $("#birthdayMusic");
+let pinInput = "";
+let hintIndex = 0;
+let unlocked = false;
+let toastTimer;
+
+/* PIN screen: the fourth digit never auto-submits. */
+function renderPin(){
+  for(let i=0;i<4;i++){
+    const slot=$("#slot"+i);
+    slot.textContent=pinInput[i] ? "●" : "·";
+    slot.classList.toggle("filled",Boolean(pinInput[i]));
+  }
+}
+function addDigit(digit){
+  if(unlocked || pinInput.length>=4) return;
+  pinInput+=digit;
+  renderPin();
+  status.textContent=pinInput.length===4
+    ? "Four digits entered. Press Enter when you're ready."
+    : `${pinInput.length} of 4 digits entered.`;
+}
+function clearPin(){
+  pinInput="";
+  renderPin();
+  status.textContent="No rush. Try another combination.";
+}
+function submitPin(){
+  if(pinInput.length!==4){
+    status.textContent="Enter all four digits first.";
+    securityCard.classList.remove("shake");
+    void securityCard.offsetWidth;
+    securityCard.classList.add("shake");
+    return;
+  }
+  if(pinInput!==SETTINGS.pin){
+    status.textContent="Not quite. Try again, or ask for another clue.";
+    securityCard.classList.remove("shake");
+    void securityCard.offsetWidth;
+    securityCard.classList.add("shake");
+    pinInput="";
+    renderPin();
+    return;
+  }
+  if(unlocked)return;
+  unlocked=true;
+  $$(".key",$("#keypad")).forEach(b=>b.disabled=true);
+  $("#nextHint").disabled=true;
+  status.textContent="The code is right. Opening your surprise...";
+  verification.classList.add("active");
+  document.body.classList.remove("locked");
+  const messages=[
+    "Verifying the birthday code",
+    "Gathering a little golden light",
+    "Preparing your birthday universe",
+    "Almost there, Steve..."
+  ];
+  let mi=0;
+  const messageTimer=setInterval(()=>{
+    mi++;
+    if(mi<messages.length) $("#verifyText").textContent=messages[mi];
+  },1400);
+  setTimeout(()=>{
+    verification.classList.add("finishing");
+  },SETTINGS.unlockDuration-800);
+  setTimeout(()=>{
+    clearInterval(messageTimer);
+    verification.classList.remove("active","finishing");
+    security.style.display="none";
+    mainSite.hidden=false;
+    header.hidden=false;
+    footer.hidden=false;
+    document.body.classList.remove("locked");
+    initReveals();
+    updateCountdown();
+    toast("Welcome to your birthday universe, Steve.");
+    window.scrollTo(0,0);
+  },SETTINGS.unlockDuration);
+}
+$$("[data-digit]").forEach(button=>button.addEventListener("click",()=>addDigit(button.dataset.digit)));
+$("#clearPin").addEventListener("click",clearPin);
+$("#enterPin").addEventListener("click",submitPin);
+$("#nextHint").addEventListener("click",()=>{
+  hintIndex++;
+  const hints=[
+    "Think of the day and month that make this celebration special.",
+    "The birthday is on the 27th day of the 10th month.",
+    "Write the day first, then the month. Four digits total."
+  ];
+  $("#hintText").textContent=hints[Math.min(hintIndex,hints.length-1)];
+  if(hintIndex>=hints.length-1) $("#nextHint").textContent="Last hint";
+});
+document.addEventListener("keydown",e=>{
+  if(!security || security.style.display==="none") return;
+  if(/^\d$/.test(e.key)) addDigit(e.key);
+  if(e.key==="Backspace") {pinInput=pinInput.slice(0,-1);renderPin();}
+  if(e.key==="Enter") submitPin();
+  if(e.key==="Escape") clearPin();
+});
+
+/* Music: playback starts only after an explicit user action. */
+$("#musicToggle").addEventListener("click",async()=>{
+  if(music.paused){
+    try{
+      await music.play();
+      $("#musicLabel").textContent="Pause music";
+      $("#musicBars").classList.add("playing");
+      toast("Birthday music is playing.");
+    }catch(error){
+      toast("Music could not start. Check the connection and try again.");
+    }
+  }else{
+    music.pause();
+    $("#musicLabel").textContent="Play music";
+    $("#musicBars").classList.remove("playing");
+  }
+});
+music.addEventListener("error",()=>toast("The song could not load. Check that the audio link is available."));
+music.addEventListener("ended",()=>$("#musicBars").classList.remove("playing"));
+
+/* Annual birthday countdown in East Africa Time. */
+function getEATParts(date=new Date()){
+  const parts=new Intl.DateTimeFormat("en-GB",{
+    timeZone:SETTINGS.timezone,year:"numeric",month:"2-digit",day:"2-digit",
+    hour:"2-digit",minute:"2-digit",second:"2-digit",hourCycle:"h23"
+  }).formatToParts(date);
+  const o={};
+  parts.forEach(p=>{if(p.type!=="literal")o[p.type]=Number(p.value)});
+  return o;
+}
+function eatTargetEpoch(year,month,day){
+  // East Africa Time is UTC+3. Midnight EAT = 21:00 UTC on the previous day.
+  return Date.UTC(year,month-1,day,-3,0,0);
+}
+function nextBirthdayTarget(now){
+  const p=getEATParts(now);
+  let target=eatTargetEpoch(p.year,SETTINGS.birthdayMonth,SETTINGS.birthdayDay);
+  if(now.getTime()>=target){
+    target=eatTargetEpoch(p.year+1,SETTINGS.birthdayMonth,SETTINGS.birthdayDay);
+  }
+  return target;
+}
+function updateCountdown(){
+  const now=new Date();
+  const p=getEATParts(now);
+  const birthdayStart=eatTargetEpoch(p.year,SETTINGS.birthdayMonth,SETTINGS.birthdayDay);
+  const birthdayEnd=eatTargetEpoch(p.year,SETTINGS.birthdayMonth,SETTINGS.birthdayDay+1);
+  if(now.getTime()>=birthdayStart && now.getTime()<birthdayEnd){
+    $("#countdownTitle").textContent="Happy Birthday, Steve!";
+    $("#countdownCaption").textContent="Today is your day. May it be full of good things.";
+    $("#days").textContent="27";
+    $("#hours").textContent="10";
+    $("#minutes").textContent="27";
+    $("#seconds").textContent="!";
+    return;
+  }
+  const target=nextBirthdayTarget(now);
+  let remaining=Math.max(0,target-now.getTime());
+  const d=Math.floor(remaining/86400000);remaining%=86400000;
+  const h=Math.floor(remaining/3600000);remaining%=3600000;
+  const m=Math.floor(remaining/60000);remaining%=60000;
+  const s=Math.floor(remaining/1000);
+  $("#days").textContent=String(d).padStart(2,"0");
+  $("#hours").textContent=String(h).padStart(2,"0");
+  $("#minutes").textContent=String(m).padStart(2,"0");
+  $("#seconds").textContent=String(s).padStart(2,"0");
+  const targetYear=new Date(target).getUTCFullYear();
+  $("#countdownTitle").textContent=`Counting down to October 27, ${targetYear}`;
+  $("#countdownCaption").textContent="A special day returns every year. All times follow East Africa Time.";
+}
+setInterval(updateCountdown,1000);
+$("#year").textContent=new Date().getFullYear();
+
+/* Reveal sections on scroll. */
+let revealObserver;
+function initReveals(){
+  if(!("IntersectionObserver" in window)){
+    $$(".reveal").forEach(el=>el.classList.add("visible"));
+    return;
+  }
+  revealObserver=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add("visible");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },{threshold:.12});
+  $$(".reveal:not(.visible)").forEach(el=>revealObserver.observe(el));
+}
+
+/* 100 birthday reasons. General by design; Jannet should personalize them. */
+const reasons=[
+"You bring your own personality into every room.",
+"Your presence can make an ordinary day feel different.",
+"You have your own way of seeing the world.",
+"You deserve to be celebrated for who you are.",
+"You keep learning as life changes.",
+"You have goals worth working toward.",
+"You have a story that is still unfolding.",
+"You can make space for laughter.",
+"You have experiences that have helped shape you.",
+"You have qualities that make you uniquely you.",
+"Your effort deserves recognition.",
+"You can keep growing through challenges.",
+"You have your own strengths to build on.",
+"You can make a difference in someone's day.",
+"You deserve kindness as much as anyone.",
+"You have a future full of possibilities.",
+"You can bring a fresh perspective to a moment.",
+"You are more than any single difficult day.",
+"You have room to discover new talents.",
+"You can keep becoming the person you want to be.",
+"Your ideas deserve to be heard.",
+"You can learn from yesterday without living in it.",
+"You deserve moments of peace.",
+"You have opportunities still waiting ahead.",
+"You can find joy in small things.",
+"You can keep choosing courage.",
+"You can make meaningful memories.",
+"You can surprise yourself with what you achieve.",
+"You deserve to feel proud of your progress.",
+"You have something valuable to contribute.",
+"You can show care in your own way.",
+"You can make time for what matters.",
+"You have the chance to begin again.",
+"You can turn lessons into wisdom.",
+"You have your own sense of humour.",
+"You can keep your curiosity alive.",
+"You deserve to celebrate your wins.",
+"You can take one step at a time.",
+"You have a life worth looking after.",
+"You can inspire someone without realizing it.",
+"You can make thoughtful choices.",
+"You deserve to be listened to.",
+"You can welcome new experiences.",
+"You can keep building confidence.",
+"You have room to change your mind and grow.",
+"You can appreciate how far you've come.",
+"You deserve good people around you.",
+"You can create something meaningful.",
+"You can be proud of honest effort.",
+"You can make tomorrow a little better.",
+"You have your own unique perspective.",
+"You can turn a plan into a first step.",
+"You deserve laughter that comes easily.",
+"You can keep discovering what makes you happy.",
+"You can make a fresh start when needed.",
+"You can learn something from almost anyone.",
+"You deserve time to rest.",
+"You can celebrate someone else's success.",
+"You can keep your hopes alive.",
+"You can be gentle with yourself while learning.",
+"You have room for new dreams.",
+"You can keep asking good questions.",
+"You can make ordinary moments memorable.",
+"You deserve encouragement on hard days.",
+"You can build habits that support your future.",
+"You can find strength in asking for help.",
+"You can keep your promises to yourself.",
+"You can make space for creativity.",
+"You deserve to be appreciated.",
+"You can keep discovering new places and ideas.",
+"You can choose respect even when you disagree.",
+"You can grow from an unexpected turn.",
+"You have more to learn about yourself.",
+"You can make a positive choice today.",
+"You deserve moments that make you smile.",
+"You can keep improving at your own pace.",
+"You can value both ambition and rest.",
+"You can celebrate the people who support you.",
+"You can keep looking for solutions.",
+"You can learn without needing to be perfect.",
+"You can make room for wonder.",
+"You deserve a birthday filled with warmth.",
+"You can keep building a life you value.",
+"You have the right to set meaningful goals.",
+"You can take pride in small progress.",
+"You can make time for genuine connection.",
+"You can keep an open mind.",
+"You can create traditions worth remembering.",
+"You can bring hope into a new chapter.",
+"You deserve to be celebrated beyond one day.",
+"You can keep your sense of possibility.",
+"You can turn a setback into a lesson.",
+"You can choose what kind of person to become.",
+"You can keep showing up for what matters.",
+"You have more chapters ahead.",
+"You can make the next year meaningful.",
+"You deserve good wishes that are sincere.",
+"Today is a chance to celebrate you."
+];
+let reasonsRevealed=false;
+function renderReasons(list=reasons){
+  const grid=$("#reasonGrid");
+  grid.innerHTML="";
+  list.forEach((reason,index)=>{
+    const card=document.createElement("button");
+    card.type="button";card.className="reason";
+    card.innerHTML=`<span class="n">REASON ${String(index+1).padStart(3,"0")}</span>
+      <p>${reason}</p><small>Tap to mark this reason</small>`;
+    card.addEventListener("click",()=>{
+      card.classList.toggle("open");
+      const small=$("small",card);
+      small.textContent=card.classList.contains("open")?"A little reminder, just for you.":"Tap to mark this reason";
+    });
+    if(reasonsRevealed)card.classList.add("open");
+    grid.appendChild(card);
+  });
+}
+renderReasons();
+$("#revealReasons").addEventListener("click",()=>{
+  reasonsRevealed=!reasonsRevealed;
+  renderReasons();
+  $("#revealReasons").textContent=reasonsRevealed?"Fold the reasons":"Reveal all reasons";
+});
+$("#shuffleReasons").addEventListener("click",()=>{
+  const shuffled=[...reasons].sort(()=>Math.random()-.5);
+  renderReasons(shuffled);
+  toast("The reasons have been shuffled.");
+});
+
+/* Cake interaction. */
+$("#blowCandles").addEventListener("click",()=>{
+  $("#cake").classList.add("blown");
+  $("#wishMessage").textContent="May your wish find its way into the year ahead. Happy Birthday, Steve.";
+  $("#blowCandles").textContent="Wish made";
+  burstParticles();
+});
+$("#relightCandles").addEventListener("click",()=>{
+  $("#cake").classList.remove("blown");
+  $("#wishMessage").textContent="";
+  $("#blowCandles").textContent="I've made my wish";
+});
+
+/* Secret ending and replay. */
+$("#openSecret").addEventListener("click",()=>{
+  $("#secretContent").classList.add("open");
+  $("#openSecret").textContent="The final chapter is open";
+  $("#openSecret").disabled=true;
+  burstParticles();
+});
+$("#celebrateAgain").addEventListener("click",()=>{
+  $("#secretContent").classList.remove("open");
+  $("#openSecret").disabled=false;
+  $("#openSecret").textContent="Open the final chapter";
+  $("#cake").classList.remove("blown");
+  $("#wishMessage").textContent="";
+  $("#blowCandles").textContent="I've made my wish";
+  window.scrollTo({top:0,behavior:"smooth"});
+  toast("Your birthday universe is ready to explore again.");
+});
+$("#backToTop").addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
+
+/* Gallery lightbox. */
+const lightbox=$("#lightbox"),lightboxImage=$("#lightboxImage");
+$$(".photo-card").forEach(card=>{
+  card.addEventListener("click",()=>{
+    lightboxImage.src=card.dataset.photo;
+    lightboxImage.alt=card.dataset.caption||"Birthday memory";
+    lightbox.classList.add("open");
+  });
+});
+function closeLightbox(){lightbox.classList.remove("open");lightboxImage.src="";}
+$("#closeLightbox").addEventListener("click",closeLightbox);
+lightbox.addEventListener("click",e=>{if(e.target===lightbox)closeLightbox();});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeLightbox();});
+
+/* Mobile navigation. */
+$("#mobileMenu").addEventListener("click",()=>{
+  const nav=$("#navLinks");
+  nav.classList.toggle("mobile-open");
+  $("#mobileMenu").setAttribute("aria-expanded",nav.classList.contains("mobile-open"));
+});
+$$('#navLinks a').forEach(a=>a.addEventListener("click",()=>$("#navLinks").classList.remove("mobile-open")));
+
+/* Toast messages. */
+function toast(message){
+  const el=$("#toast");
+  el.textContent=message;el.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>el.classList.remove("show"),2600);
+}
+
+/* Small celebratory particle burst, no external library. */
+function burstParticles(){
+  const colors=["#f6d68a","#ffadd8","#85f5ff","#b99aff"];
+  for(let i=0;i<42;i++){
+    const p=document.createElement("span");
+    p.style.cssText=`
+      position:fixed;z-index:250;pointer-events:none;left:${35+Math.random()*30}%;
+      top:${35+Math.random()*25}%;width:${3+Math.random()*5}px;height:${3+Math.random()*5}px;
+      border-radius:${Math.random()>.5?"50%":"2px"};background:${colors[i%colors.length]};
+      box-shadow:0 0 12px ${colors[i%colors.length]};
+      transition:transform 1.4s ease-out,opacity 1.4s ease-out;opacity:1`;
+    document.body.appendChild(p);
+    requestAnimationFrame(()=>{
+      p.style.transform=`translate(${(Math.random()-.5)*520}px,${(Math.random()-.5)*440}px) rotate(${Math.random()*540}deg)`;
+      p.style.opacity="0";
+    });
+    setTimeout(()=>p.remove(),1500);
+  }
+}
+
+/* Ambient stars, reduced automatically for small screens. */
+(function starfield(){
+  const canvas=$("#stars"),ctx=canvas.getContext("2d");
+  let w=0,h=0,stars=[];
+  const reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function resize(){
+    const dpr=Math.min(window.devicePixelRatio||1,2);
+    w=window.innerWidth;h=window.innerHeight;
+    canvas.width=w*dpr;canvas.height=h*dpr;
+    canvas.style.width=w+"px";canvas.style.height=h+"px";
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    const count=Math.min(115,Math.floor(w*h/9500));
+    stars=Array.from({length:count},()=>({
+      x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.4+.25,
+      a:Math.random()*.6+.15,s:Math.random()*.004+.001
+    }));
+  }
+  function draw(){
+    ctx.clearRect(0,0,w,h);
+    stars.forEach(s=>{
+      s.a+=s.s*(Math.random()>.5?1:-1);
+      s.a=Math.max(.12,Math.min(.8,s.a));
+      ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(255,238,206,${s.a})`;ctx.fill();
+    });
+    if(!reduce)requestAnimationFrame(draw);
+  }
+  resize();draw();
+  window.addEventListener("resize",resize);
+})();
+
+/* The page remains usable if IntersectionObserver isn't supported. */
+window.addEventListener("load",()=>{
+  updateCountdown();
+  if(!mainSite.hidden)initReveals();
+});
+</script>
+</body>
+</html>
